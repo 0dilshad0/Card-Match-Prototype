@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2992042959791234258}
   - component: {fileID: 6808093939155297617}
   m_Layer: 5
-  m_Name: back
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d5ecdaad2a73fb04986a0a0faeade2c2, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d5ecdaad2a73fb04986a0a0faeade2c2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -201,7 +201,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7742181166280834287}
         m_TargetAssemblyTypeName: Card, Assembly-CSharp
-        m_MethodName: Show
+        m_MethodName: Select
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -223,4 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e47d49646278c4fb74432b2940f624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Back: {fileID: 8583668101552245003}
+  Icon: {fileID: 8583668101552245003}
+  IsSelected: 0
+  CardSprite: {fileID: 0}
