@@ -19,7 +19,7 @@ public class Card : MonoBehaviour
         Image cardImage = Icon.GetComponent<Image>();
         cardImage.sprite = CardSprite;
 
-        Show();
+       
         Invoke("Hide",1f);
     }
 

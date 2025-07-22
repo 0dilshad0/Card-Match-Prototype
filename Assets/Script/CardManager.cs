@@ -85,12 +85,14 @@ public class CardManager : MonoBehaviour
         {
             card1.Match();
             card2.Match();
+            ScoreManager.Instance.AddScore(1);
         }
         else
         {
             card1.Hide();
             card2.Hide();
         }
+        TurnManager.Instance.UseTurn();
        
     }
 }
