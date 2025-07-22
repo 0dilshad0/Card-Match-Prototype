@@ -1025,6 +1025,7 @@ MonoBehaviour:
   GameOverScreen: {fileID: 408453761}
   GameWinScreen: {fileID: 1562810146}
   MenueScreen: {fileID: 56293616}
+  UnlockLevel: Medium
 --- !u!4 &480473182
 Transform:
   m_ObjectHideFlags: 0

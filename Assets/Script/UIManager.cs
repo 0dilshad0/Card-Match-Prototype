@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -13,6 +11,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject GameOverScreen;
     [SerializeField] GameObject GameWinScreen;
     [SerializeField] GameObject MenueScreen;
+
+    [SerializeField] string UnlockLevel;
 
     private void Awake()
     {
@@ -43,15 +43,10 @@ public class UIManager : MonoBehaviour
     public void GameWin()
     {
         GameWinScreen.SetActive(true);
-    }
-
-    public void Back()
-    {
-
-    }
-
-    public void Retry()
-    {
-
+        if(UnlockLevel != null)
+        {
+            LevelManager.Instance.UnlockLevel(UnlockLevel);
+        }
+      
     }
 }

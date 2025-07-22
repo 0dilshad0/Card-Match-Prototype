@@ -4460,6 +4460,7 @@ MonoBehaviour:
   GameOverScreen: {fileID: 5369419288542818227}
   GameWinScreen: {fileID: 5369419287386110480}
   MenueScreen: {fileID: 5369419288089974210}
+  UnlockLevel: Hard
 --- !u!1 &5369419288490790149
 GameObject:
   m_ObjectHideFlags: 0

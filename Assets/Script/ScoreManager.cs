@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
- 
+    
     private int score;
 
     private void Awake()
@@ -31,6 +29,7 @@ public class ScoreManager : MonoBehaviour
         {
             AudioManager.Instance.PlayWinSFX();
             UIManager.Instance.GameWin();
+           
         }
     }
 }
