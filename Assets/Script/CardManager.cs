@@ -28,15 +28,9 @@ public class CardManager : MonoBehaviour
         }
 
     }
-    void Start()
+    public void ShaffleSpawn()
     {
-        Shuffle();
-        Spawn();
-    }
-
-    private void Shuffle()
-    {
-        for (int i = 0; i < (rows * cols) / 2; i++)
+        for (int i = 0; i < (rows * cols) / 2; i++)//shaffle card position
         {
             Sprits.Add(sprits[i]);
             Sprits.Add(sprits[i]);
@@ -50,22 +44,19 @@ public class CardManager : MonoBehaviour
             Sprits[randomIndex] = temp;
         }
 
-    }
-
-    private void Spawn()
-    {
-
-        for (int i = 0; i < rows * cols; i++)
+        for (int i = 0; i < rows * cols; i++)   //spawn cards
         {
             GameObject newCard = Instantiate(CardPrefab, Container);
-      
+
             Card card = newCard.GetComponent<Card>();
             card.CardSprite = Sprits[i];
+
+            card.SetIcon();
         }
 
     }
 
-    public void SelectCard(Card card)
+    public void SelectCard(Card card)//select card
     {
         AudioManager.Instance.PlayFlipSFX();
         card.Show();
@@ -79,10 +70,10 @@ public class CardManager : MonoBehaviour
 
     }
 
-    IEnumerator Check(Card card1, Card card2)
+    IEnumerator Check(Card card1, Card card2)//Campare cards
     {
         yield return new WaitForSeconds(0.5f);
-        if (card1.CardSprite == card2.CardSprite)
+        if (card1.CardSprite == card2.CardSprite)//
         {
             card1.Match();
             card2.Match();
@@ -91,7 +82,7 @@ public class CardManager : MonoBehaviour
             ScoreManager.Instance.CheckIsWin(rows,cols);
             AudioManager.Instance.PlayMatchSFX();
         }
-        else
+        else                                     //Not match 
         {
             card1.Hide();
             card2.Hide();

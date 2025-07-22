@@ -5,13 +5,15 @@ public class Card : MonoBehaviour
 {
     [SerializeField] private GameObject Icon;
     [SerializeField] private Animator CardAnimator;
+
     public Sprite CardSprite;
+
     private bool IsSelected;
     private bool IsMatched;
     
     
 
-    void Start()
+    public void SetIcon()
     {
         
         Image cardImage = Icon.GetComponent<Image>();
@@ -27,7 +29,7 @@ public class Card : MonoBehaviour
         if(!IsSelected && !IsSelected)
         CardManager.Instance.SelectCard(this);
     }
-    public void Show()
+    public void Show()//show card
     {
         
         CardAnimator.SetTrigger("Pressed");
@@ -40,18 +42,19 @@ public class Card : MonoBehaviour
         Icon.SetActive(true);
     }
 
-    public void Hide()
+    public void Hide()//hide card
     {
       
         IsSelected = false;
         CardAnimator.SetTrigger("Pressed");
         Invoke("CardHide", 0.2f);
     }
+
     private void CardHide()
     {
         Icon.SetActive(false);
     }
-
+   
     public void Match()
     {
         IsSelected = true;

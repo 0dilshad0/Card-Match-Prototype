@@ -27,22 +27,22 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void UpdateScore(int score,int Combo)
+    public void UpdateScore(int score,int Combo)// Update score and combo score
     {
         ScoreText.text = score.ToString();
         ComboScoreText.text = $"+ {Combo}";
     }
-    public void UpdateTurns(int turns)
+    public void UpdateTurns(int turns)// Update number of turns/try
     {
         TurnsCountText.text = turns.ToString();
     }
 
-    public void GameOver()
+    public void GameOverUI()
     {
         GameOverScreen.SetActive(true);
     }
 
-    public void GameWin()
+    public void GameWinUI()
     {
         GameWinScreen.SetActive(true);
         if(UnlockLevel != null)

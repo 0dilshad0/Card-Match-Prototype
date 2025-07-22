@@ -5,6 +5,7 @@ public class TurnManager : MonoBehaviour
     public static TurnManager Instance;
 
     [SerializeField] private int MaxTurn;
+
     private int CurrentTurn;
 
     private void Awake()
@@ -19,24 +20,21 @@ public class TurnManager : MonoBehaviour
         }
     }
 
-    void Start()
+    public void StarTurnCounder()
     {
         CurrentTurn = MaxTurn;
         UIManager.Instance.UpdateTurns(CurrentTurn);
     }
 
-    public void UseTurn()
+    public void UseTurn() // calculate number of turn/try
     {
-        if(CurrentTurn>0)
-        {
-            CurrentTurn--;
-            UIManager.Instance.UpdateTurns(CurrentTurn);
-        }
-        else
-        {
-            UIManager.Instance.GameOver();
+        CurrentTurn--;
+        UIManager.Instance.UpdateTurns(CurrentTurn);
+        if (CurrentTurn<=0)
+        { 
+            GameManager.Instance.GameOver();
             AudioManager.Instance.PlayOverSFX();
         }
-       
+             
     }
 }

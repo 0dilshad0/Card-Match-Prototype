@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void LoadLevel(string LevelName)
+    public void LoadLevel(string LevelName) //start level
     {
         if(CheckISUnlocked(LevelName))
         {
@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
     }
 
 
-    public void UnlockLevel(string LevelName)
+    public void UnlockLevel(string LevelName) //unlock level
     {
 
         if(LevelName == "Medium")
@@ -44,7 +44,7 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    public bool CheckISUnlocked(string LevelName)
+    public bool CheckISUnlocked(string LevelName) //Check Levels are lock or not
     {
         if (LevelName == "Easy")
         {
@@ -62,7 +62,7 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    public void ResetKey()
+    public void ResetKey()//rset seves 
     {
         PlayerPrefs.DeleteKey(LEVEL_HARD);
         PlayerPrefs.DeleteKey(LEVEL_MEDIUM);

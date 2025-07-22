@@ -5,6 +5,7 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance;
 
     public int ComboScore = 1;
+
     private int score;
     private int TottalCards;
     
@@ -20,9 +21,11 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void StartScorCound()
     {
         updateCombo();
+        score = 0;
+
     }
 
     public void AddScore()
@@ -38,12 +41,12 @@ public class ScoreManager : MonoBehaviour
     }
 
 
-    public void CheckIsWin(int row,int col)
+    public void CheckIsWin(int row,int col) // check gave is win or not
     {
         if((row*col)/2 == TottalCards)
         {
             AudioManager.Instance.PlayWinSFX();
-            UIManager.Instance.GameWin();
+            GameManager.Instance.GameWin();
            
         }
     }

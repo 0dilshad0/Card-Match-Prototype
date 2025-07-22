@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +12,7 @@ public class Unloked : MonoBehaviour
         Check();
     }
 
-    public void Check()
+    public void Check() //Check Levels are lock or not
     {
         if (!LevelManager.Instance.CheckISUnlocked("Medium"))
         {
