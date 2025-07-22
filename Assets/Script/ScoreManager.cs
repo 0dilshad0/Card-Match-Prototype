@@ -23,7 +23,14 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(int point)
     {
         score = score + point;
-        UIManager.Instance.UpdateTurns(score);
-
+        UIManager.Instance.UpdateScore(score);
+    }
+    public void CheckIsWin(int row,int col)
+    {
+        if((row*col)/2 == score)
+        {
+            AudioManager.Instance.PlayWinSFX();
+            UIManager.Instance.GameWin();
+        }
     }
 }

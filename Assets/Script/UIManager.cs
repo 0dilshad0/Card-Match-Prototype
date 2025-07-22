@@ -6,8 +6,10 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
+
     [SerializeField] private TMP_Text TurnsCountText;
     [SerializeField] private TMP_Text ScoreText;
+
     [SerializeField] GameObject GameOverScreen;
     [SerializeField] GameObject GameWinScreen;
     [SerializeField] GameObject MenueScreen;
@@ -26,7 +28,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateScore(int score)
     {
-        TurnsCountText.text = score.ToString();
+        ScoreText.text = score.ToString();
     }
     public void UpdateTurns(int turns)
     {
@@ -36,5 +38,20 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         GameOverScreen.SetActive(true);
+    }
+
+    public void GameWin()
+    {
+        GameWinScreen.SetActive(true);
+    }
+
+    public void Back()
+    {
+
+    }
+
+    public void Retry()
+    {
+
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class CardManager : MonoBehaviour
 {
@@ -67,7 +67,7 @@ public class CardManager : MonoBehaviour
 
     public void SelectCard(Card card)
     {
-        AudioManager.Instance.PlaySFX(AudioManager.Instance.FlipSFX);
+        AudioManager.Instance.PlayFlipSFX();
         card.Show();
         SelectedCards.Add(card);
 
@@ -87,11 +87,12 @@ public class CardManager : MonoBehaviour
             card1.Match();
             card2.Match();
             ScoreManager.Instance.AddScore(1);
-            AudioManager.Instance.PlaySFX(AudioManager.Instance.MatchSFX);
+            ScoreManager.Instance.CheckIsWin(rows,cols);
+            AudioManager.Instance.PlayMatchSFX();
         }
         else
         {
-            AudioManager.Instance.PlaySFX(AudioManager.Instance.FlipSFX);
+            AudioManager.Instance.PlayFlipSFX();
             card1.Hide();
             card2.Hide();
         }

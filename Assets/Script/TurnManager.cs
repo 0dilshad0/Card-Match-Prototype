@@ -37,7 +37,7 @@ public class TurnManager : MonoBehaviour
         else
         {
             UIManager.Instance.GameOver();
-            AudioManager.Instance.PlaySFX(AudioManager.Instance.OverSFX);
+            AudioManager.Instance.PlayOverSFX();
         }
        
     }

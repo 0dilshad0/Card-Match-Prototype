@@ -10,10 +10,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource SFXSorce;
 
     [SerializeField] private AudioClip BgMusic;
-    public AudioClip FlipSFX;
-    public AudioClip WinSFX;
-    public AudioClip OverSFX;
-    public AudioClip MatchSFX;
+    [SerializeField] private AudioClip FlipSFX;
+    [SerializeField] private AudioClip WinSFX;
+    [SerializeField] private AudioClip OverSFX;
+    [SerializeField] private AudioClip MatchSFX;
 
 
 
@@ -35,7 +35,25 @@ public class AudioManager : MonoBehaviour
         musicSorce.Play();
     }
 
-    public void PlaySFX(AudioClip clip)
+    public void PlayFlipSFX()
+    {
+        PlaySFX(FlipSFX);
+    }
+
+    public void PlayOverSFX()
+    {
+        PlaySFX(OverSFX);
+    }
+    public void PlayWinSFX()
+    {
+        PlaySFX(WinSFX);
+    }
+    public void PlayMatchSFX()
+    {
+        PlaySFX(MatchSFX);
+    }
+
+    private void PlaySFX(AudioClip clip)
     {
         SFXSorce.PlayOneShot(clip);
     }
