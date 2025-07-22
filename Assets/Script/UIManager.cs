@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private TMP_Text TurnsCountText;
     [SerializeField] private TMP_Text ScoreText;
+    [SerializeField] private TMP_Text ComboScoreText;
 
     [SerializeField] GameObject GameOverScreen;
     [SerializeField] GameObject GameWinScreen;
@@ -26,9 +27,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void UpdateScore(int score)
+    public void UpdateScore(int score,int Combo)
     {
         ScoreText.text = score.ToString();
+        ComboScoreText.text = $"+ {Combo}";
     }
     public void UpdateTurns(int turns)
     {

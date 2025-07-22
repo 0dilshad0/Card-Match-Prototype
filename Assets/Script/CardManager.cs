@@ -86,15 +86,19 @@ public class CardManager : MonoBehaviour
         {
             card1.Match();
             card2.Match();
-            ScoreManager.Instance.AddScore(1);
+            ScoreManager.Instance.ComboScore++;
+            ScoreManager.Instance.AddScore();
             ScoreManager.Instance.CheckIsWin(rows,cols);
             AudioManager.Instance.PlayMatchSFX();
         }
         else
         {
-            AudioManager.Instance.PlayFlipSFX();
             card1.Hide();
             card2.Hide();
+            ScoreManager.Instance.ComboScore = 1;
+            ScoreManager.Instance.updateCombo();
+            AudioManager.Instance.PlayFlipSFX();
+          
         }
         TurnManager.Instance.UseTurn();
        

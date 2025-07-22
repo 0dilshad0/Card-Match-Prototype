@@ -3,9 +3,11 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
-    
-    private int score;
 
+    public int ComboScore = 1;
+    private int score;
+    private int TottalCards;
+    
     private void Awake()
     {
         if(Instance == null)
@@ -18,14 +20,27 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void AddScore(int point)
+    private void Start()
     {
-        score = score + point;
-        UIManager.Instance.UpdateScore(score);
+        updateCombo();
     }
+
+    public void AddScore()
+    {
+        TottalCards++;
+        score = score + ComboScore;
+        updateCombo();
+    }
+
+    public void updateCombo()
+    {
+        UIManager.Instance.UpdateScore(score, ComboScore);
+    }
+
+
     public void CheckIsWin(int row,int col)
     {
-        if((row*col)/2 == score)
+        if((row*col)/2 == TottalCards)
         {
             AudioManager.Instance.PlayWinSFX();
             UIManager.Instance.GameWin();
