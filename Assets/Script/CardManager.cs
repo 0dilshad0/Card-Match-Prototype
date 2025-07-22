@@ -14,8 +14,7 @@ public class CardManager : MonoBehaviour
     public int cols;
 
     private List<Sprite> Sprits = new();
-    private Card FirstCard;
-    private Card SecondCard;
+    private List<Card> SelectedCards = new();
 
     private void Awake()
     {
@@ -63,27 +62,20 @@ public class CardManager : MonoBehaviour
             Card card = newCard.GetComponent<Card>();
             card.CardSprite = Sprits[i];
         }
+
     }
 
     public void SelectCard(Card card)
     {
-        if(!card.IsSelected)
+        card.Show();
+        SelectedCards.Add(card);
+
+        if(SelectedCards.Count >=2)
         {
-            card.Show();
-
-            if(FirstCard == null)
-            {
-                FirstCard = card;
-                return;
-            }
-
-            if(SecondCard == null)
-            {
-                SecondCard = card;
-                StartCoroutine(Check(FirstCard,SecondCard));
-            }
-
+            StartCoroutine(Check(SelectedCards[0], SelectedCards[1]));
+            SelectedCards.Clear();
         }
+
     }
 
     IEnumerator Check(Card card1, Card card2)
@@ -91,14 +83,14 @@ public class CardManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if (card1.CardSprite == card2.CardSprite)
         {
-
+            card1.Match();
+            card2.Match();
         }
         else
         {
             card1.Hide();
             card2.Hide();
         }
-        FirstCard = null;
-        SecondCard = null;
+       
     }
 }

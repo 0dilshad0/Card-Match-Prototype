@@ -169,8 +169,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9469f1ba907f28b43ade77788ad3f103, type: 3}
   CardPrefab: {fileID: 9047571716713668723, guid: 01784f9e85bfe2b46a76b64f9f7b509d, type: 3}
   Container: {fileID: 1220116937}
-  rows: 2
-  cols: 3
+  rows: 5
+  cols: 6
 --- !u!4 &206125007
 Transform:
   m_ObjectHideFlags: 0
