@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
-    public GameObject Icon;
+    [SerializeField] private GameObject Icon;
+    [SerializeField] private Animator CardAnimator;
     public Sprite CardSprite;
-    public Animator CardAnimator;
     private bool IsSelected;
     private bool IsMatched;
     
@@ -31,6 +31,7 @@ public class Card : MonoBehaviour
     }
     public void Show()
     {
+        
         CardAnimator.SetTrigger("Pressed");
         IsSelected = true;
         Invoke("CardShow",0.2f);
@@ -42,7 +43,8 @@ public class Card : MonoBehaviour
     }
 
     public void Hide()
-    { 
+    {
+      
         IsSelected = false;
         CardAnimator.SetTrigger("Pressed");
         Invoke("CardHide", 0.2f);

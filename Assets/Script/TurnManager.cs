@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
     public static TurnManager Instance;
-    public TMP_Text TurnsCountText;
-    public int MaxTurn;
+
+    [SerializeField] private int MaxTurn;
     private int CurrentTurn;
 
     private void Awake()
@@ -25,12 +24,21 @@ public class TurnManager : MonoBehaviour
     void Start()
     {
         CurrentTurn = MaxTurn;
-        TurnsCountText.text = CurrentTurn.ToString();
+        UIManager.Instance.UpdateTurns(CurrentTurn);
     }
 
     public void UseTurn()
     {
-        CurrentTurn--;
-        TurnsCountText.text = CurrentTurn.ToString();
+        if(CurrentTurn>0)
+        {
+            CurrentTurn--;
+            UIManager.Instance.UpdateTurns(CurrentTurn);
+        }
+        else
+        {
+            UIManager.Instance.GameOver();
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.OverSFX);
+        }
+       
     }
 }

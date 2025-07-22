@@ -7,11 +7,11 @@ public class CardManager : MonoBehaviour
 {
     public static CardManager Instance;
 
-    public Sprite[] sprits;
-    public GameObject CardPrefab;
-    public Transform Container;
-    public int rows;
-    public int cols;
+    [SerializeField] private Sprite[] sprits;
+    [SerializeField] private GameObject CardPrefab;
+    [SerializeField] private Transform Container;
+    [SerializeField] private int rows;
+    [SerializeField] private int cols;
 
     private List<Sprite> Sprits = new();
     private List<Card> SelectedCards = new();
@@ -67,6 +67,7 @@ public class CardManager : MonoBehaviour
 
     public void SelectCard(Card card)
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.FlipSFX);
         card.Show();
         SelectedCards.Add(card);
 
@@ -86,9 +87,11 @@ public class CardManager : MonoBehaviour
             card1.Match();
             card2.Match();
             ScoreManager.Instance.AddScore(1);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.MatchSFX);
         }
         else
         {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.FlipSFX);
             card1.Hide();
             card2.Hide();
         }
